@@ -1,0 +1,26 @@
+# Dipendenze e build
+node_modules/
+dist/
+.next/
+*.tsbuildinfo
+
+# Segreti / ambiente — MAI committare
+.env
+.env.*
+*.local
+
+# Supabase — stato locale della CLI (contiene project-ref e connection string)
+supabase/.temp/
+supabase/.branches/
+
+# Vercel — ID di progetto e organizzazione
+.vercel/
+
+# Claude Code — impostazioni locali
+.claude/settings.local.json
+
+# Clone ridondante del repo dati pubblico (vive già su GitHub, ha il suo .git)
+visitare-case-it/
+
+# Sistema
+.DS_Store

@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Visitare — chi visitare oggi</title>
+    <meta name="description" content="L'app degli Agenti Comunitari di Salute: chi visitare oggi, per filtro e per quota." />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="apple-touch-icon" href="/visitare-badge-180.png" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Visitare" />
+
+    <!-- Un URL di Visitare si manda a un collega: deve arrivare con una faccia. -->
+    <meta property="og:title" content="Visitare" />
+    <meta property="og:description" content="Chi visitare oggi, per filtro e per quota." />
+    <meta property="og:image" content="/visitare-og.png" />
+    <meta property="og:locale" content="it_IT" />
+
+    <!-- Il tema segue il colore del fondo, non quello dell'azione: la barra di
+         sistema deve sparire dentro la pagina, non competere con l'intestazione. -->
+    <meta name="theme-color" content="#F7F5F1" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#10161A" media="(prefers-color-scheme: dark)" />
+
+    <style>
+      /* Scheletro statico: la prima schermata non è mai bianca, nemmeno prima
+         che arrivi il JavaScript. Gli stessi token di src/index.css, ripetuti
+         qui perché questo blocco vive prima del CSS dell'applicazione. */
+      :root { --carta: #F7F5F1; --scheda: #FFFFFF; --nebbia: #E3E1DC; }
+      @media (prefers-color-scheme: dark) {
+        :root { --carta: #10161A; --scheda: #182026; --nebbia: #28333A; }
+      }
+      html, body, #root { height: 100%; margin: 0; }
+      body {
+        background: var(--carta);
+        font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      }
+      @keyframes avvio-pulsa { 0%, 100% { opacity: 1 } 50% { opacity: .45 } }
+      .avvio-blocco {
+        background: var(--nebbia); border-radius: 6px;
+        animation: avvio-pulsa 1.4s ease-in-out infinite;
+      }
+      @media (prefers-reduced-motion: reduce) { .avvio-blocco { animation: none } }
+      .avvio { padding: 12px 16px; }
+      .avvio-riga {
+        background: var(--scheda); border: 1px solid var(--nebbia);
+        border-radius: 14px; padding: 14px; margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root">
+      <div class="avvio" aria-hidden="true">
+        <div style="display:flex;align-items:center;justify-content:space-between;height:44px">
+          <div class="avvio-blocco" style="width:96px;height:20px"></div>
+          <div class="avvio-blocco" style="width:132px;height:32px"></div>
+        </div>
+        <div class="avvio-blocco" style="width:180px;height:12px;margin:6px 0 16px"></div>
+        <div class="avvio-blocco" style="width:100%;height:40px;margin-bottom:14px"></div>
+        <div class="avvio-riga">
+          <div class="avvio-blocco" style="width:60%;height:16px;margin-bottom:8px"></div>
+          <div class="avvio-blocco" style="width:80%;height:12px"></div>
+        </div>
+        <div class="avvio-riga">
+          <div class="avvio-blocco" style="width:50%;height:16px;margin-bottom:8px"></div>
+          <div class="avvio-blocco" style="width:72%;height:12px"></div>
+        </div>
+        <div class="avvio-riga">
+          <div class="avvio-blocco" style="width:65%;height:16px;margin-bottom:8px"></div>
+          <div class="avvio-blocco" style="width:55%;height:12px"></div>
+        </div>
+      </div>
+    </div>
+    <noscript>
+      <p style="padding:16px;font-family:system-ui">
+        Visitare ha bisogno di JavaScript attivo per mostrare i pazienti.
+      </p>
+    </noscript>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

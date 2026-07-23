@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Visitare — Brand System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --blu:#14507A; --blu-scuro:#0E3A59; --blu-chiaro:#E7F0F6;
+  --terra:#C75B39; --terra-scuro:#A8462A; --terra-chiara:#FBEDE7;
+  --verde:#2F7A5B; --verde-chiaro:#E7F2EC;
+  --urgenza:#B3261E; --attenzione:#B26A00;
+  --inch:#141A1E; --grafite:#4A555C; --pietra:#8B979E;
+  --nebbia:#E3E1DC; --carta:#F7F5F1; --bianco:#fff;
+  --bg:var(--carta); --fg:var(--inch); --muted:var(--grafite);
+  --card:#fff; --bordo:#E3E1DC;
+  --serif:'Bricolage Grotesque',ui-sans-serif,system-ui,sans-serif;
+  --sans:'Inter',ui-sans-serif,system-ui,-apple-system,sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root{--bg:#10161A;--fg:#F2F0EC;--muted:#9AA6AD;--card:#182026;--bordo:#28333A;
+        --blu-chiaro:#16303F;--terra-chiara:#33211B;--verde-chiaro:#172B23}
+}
+:root[data-theme="dark"]{--bg:#10161A;--fg:#F2F0EC;--muted:#9AA6AD;--card:#182026;--bordo:#28333A;
+  --blu-chiaro:#16303F;--terra-chiara:#33211B;--verde-chiaro:#172B23}
+:root[data-theme="light"]{--bg:#F7F5F1;--fg:#141A1E;--muted:#4A555C;--card:#fff;--bordo:#E3E1DC;
+  --blu-chiaro:#E7F0F6;--terra-chiara:#FBEDE7;--verde-chiaro:#E7F2EC}
+
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--sans);
+  font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:920px;margin:0 auto;padding:56px 24px 96px}
+h1,h2,h3{font-family:var(--serif);font-weight:800;letter-spacing:-.02em;line-height:1.15;margin:0}
+h1{font-size:clamp(34px,6vw,52px)}
+h2{font-size:26px;margin:64px 0 8px;padding-top:24px;border-top:1px solid var(--bordo)}
+h3{font-size:16px;font-weight:600;margin:28px 0 8px;letter-spacing:0}
+p{margin:10px 0}
+.lead{font-size:18px;color:var(--muted);max-width:62ch}
+.eyebrow{font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--terra-scuro)}
+.grid{display:grid;gap:14px;margin-top:18px}
+.g3{grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}
+.g2{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.card{background:var(--card);border:1px solid var(--bordo);border-radius:14px;padding:18px}
+.card h3{margin-top:0}
+.card p{color:var(--muted);font-size:14px;margin:6px 0 0}
+.sw{border-radius:12px;overflow:hidden;border:1px solid var(--bordo)}
+.sw .chip{height:82px}
+.sw .meta{padding:10px 12px;background:var(--card);font-size:13px}
+.sw .meta b{display:block;font-size:14px}
+.sw .meta code{color:var(--muted);font-size:12px}
+.ramp{display:flex;height:44px;border-radius:10px;overflow:hidden;border:1px solid var(--bordo)}
+.ramp i{flex:1}
+.ramp-lab{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);margin-top:6px}
+pre{background:var(--card);border:1px solid var(--bordo);border-radius:12px;padding:14px;
+  overflow-x:auto;font-size:12px;line-height:1.5}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+table{width:100%;border-collapse:collapse;margin-top:12px;font-size:14px;display:block;overflow-x:auto}
+th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--bordo);vertical-align:top}
+th{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:600}
+.logo-stage{background:var(--card);border:1px solid var(--bordo);border-radius:16px;
+  padding:36px;display:flex;align-items:center;justify-content:center;gap:28px;flex-wrap:wrap}
+.logo-stage.blu{background:var(--blu);border-color:var(--blu)}
+.lock{display:flex;align-items:center;gap:14px}
+.lock .word{font-family:var(--serif);font-weight:800;font-size:32px;letter-spacing:-.03em}
+.word{font-family:var(--serif);font-weight:800;letter-spacing:-.03em}
+[data-mark]{display:inline-flex;line-height:0}
+.do{border-left:3px solid var(--verde);padding-left:14px}
+.dont{border-left:3px solid var(--urgenza);padding-left:14px}
+ul{margin:8px 0;padding-left:20px}li{margin:5px 0}
+.pill{display:inline-block;padding:3px 10px;border-radius:999px;font-size:12px;font-weight:600}
+.foot{margin-top:72px;padding-top:20px;border-top:1px solid var(--bordo);
+  color:var(--muted);font-size:13px}
+.type-demo{font-family:var(--serif);letter-spacing:-.02em}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<span class="eyebrow">Brand System · v1</span>
+<h1>Visitare</h1>
+<p class="lead">Il territorio, in mano a chi lo cammina. Guida di marca per
+l'implementazione del front-end: cosa comunica, con quali colori, con quali caratteri.</p>
+
+<h2>1 · I tre motivi</h2>
+<p class="lead" style="font-size:15px">Tutto quello che disegneremo deve poter essere
+ricondotto a uno di questi tre.</p>
+<div class="grid g3">
+  <div class="card">
+    <h3>🏛️ Sanità pubblica</h3>
+    <p>Un servizio di tutti, non un prodotto. Affidabile, leggibile, sobrio.
+    Nessuna estetica da startup: questa app sta accanto a una Casa della Comunità.</p>
+  </div>
+  <div class="card">
+    <h3>🤝 Comunità</h3>
+    <p>L'ACS <em>vive</em> nel quartiere che visita. Il tono è caldo e umano, mai clinico:
+    si parla di persone alla porta di casa, non di record.</p>
+  </div>
+  <div class="card">
+    <h3>⛰️ Territorio</h3>
+    <p>Un versante ripido, 0–285 m di quota. La fatica è il dislivello. La grafica lo
+    dice apertamente: <b>curve di livello</b> ovunque, come firma visiva.</p>
+  </div>
+</div>
+
+<h2>2 · Logo</h2>
+<p>Un <b>segnaposto abitato</b>: un pin da mappa il cui foro è una persona. Il territorio
+e chi ci vive nello stesso segno, letto al primo colpo da chiunque — che è esattamente
+quello che serve a uno strumento di lavoro pubblico.</p>
+
+<div class="logo-stage">
+  <div class="lock">
+    <span data-mark="58"></span>
+    <span class="word">Visitare</span>
+  </div>
+</div>
+
+<div class="grid g2" style="margin-top:14px">
+  <div class="logo-stage blu" style="padding:28px">
+    <span data-mark="44" data-neg="1"></span>
+    <span class="word" style="color:#F7F5F1;font-size:28px">Visitare</span>
+  </div>
+  <div class="logo-stage" style="padding:28px;gap:20px">
+    <span data-mark="34"></span>
+    <span data-mark="24"></span>
+    <span data-mark="16"></span>
+    <span style="color:var(--muted);font-size:13px">tenuta a 34, 24 e 16 px</span>
+  </div>
+</div>
+
+<h3>Regole</h3>
+<ul>
+  <li><b>Un solo colore.</b> Blu Servizio su fondo chiaro, Carta su fondo scuro o
+    fotografico: la persona è sempre un <b>vuoto</b>, mai un secondo colore.</li>
+  <li><b>Dimensione minima</b> 16 px — a quella misura resta leggibile, ed è il motivo
+    per cui abbiamo scelto questo segno.</li>
+  <li><b>Aria intorno</b>: metà della larghezza del pin su tutti i lati.</li>
+  <li>La figura non ha volto né tratti somatici: è chiunque, non una persona precisa.</li>
+  <li>Il pin <b>non</b> si usa anche come marcatore sulla mappa: lì i pin sono dati,
+    qui è la marca. Confonderli svuota entrambi.</li>
+</ul>
+
+<h3>Sorgente SVG</h3>
+<pre><code>&lt;svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"&gt;
+  &lt;path d="M24 6c-8.2 0-14.8 6.5-14.8 14.6C9.2 31 24 43 24 43s14.8-12 14.8-22.4C38.8 12.5 32.2 6 24 6z"
+        fill="#14507A"/&gt;
+  &lt;circle cx="24" cy="17.4" r="3.6" fill="#F7F5F1"/&gt;
+  &lt;path d="M17.4 27.6c0-3.7 3-5.8 6.6-5.8s6.6 2.1 6.6 5.8" fill="#F7F5F1"/&gt;
+&lt;/svg&gt;
+
+&lt;!-- in negativo: pin #F7F5F1, vuoti #14507A --&gt;</code></pre>
+<h2>3 · Colore</h2>
+<p>Tre colori portanti, presi dal luogo: il <b>blu</b> dell'istituzione pubblica,
+la <b>terracotta</b> dei tetti della Rocinha, il <b>verde</b> della mata sul versante.
+Nessun azzurro da ospedale.</p>
+
+<div class="grid g3">
+  <div class="sw"><div class="chip" style="background:#14507A"></div>
+    <div class="meta"><b>Blu Servizio</b><code>#14507A</code> — primario, azioni, marca</div></div>
+  <div class="sw"><div class="chip" style="background:#C75B39"></div>
+    <div class="meta"><b>Terracotta</b><code>#C75B39</code> — accento, calore, comunità</div></div>
+  <div class="sw"><div class="chip" style="background:#2F7A5B"></div>
+    <div class="meta"><b>Verde Versante</b><code>#2F7A5B</code> — territorio, esito positivo</div></div>
+</div>
+
+<h3>Colori di stato</h3>
+<div class="grid g3">
+  <div class="sw"><div class="chip" style="background:#B3261E"></div>
+    <div class="meta"><b>Urgenza</b><code>#B3261E</code> — PS mai ricontattato</div></div>
+  <div class="sw"><div class="chip" style="background:#B26A00"></div>
+    <div class="meta"><b>Attenzione</b><code>#B26A00</code> — non visitato da &gt;90 giorni</div></div>
+  <div class="sw"><div class="chip" style="background:#8B979E"></div>
+    <div class="meta"><b>Neutro</b><code>#8B979E</code> — mai visitato, dato assente</div></div>
+</div>
+
+<h3>Neutri caldi</h3>
+<div class="grid g3">
+  <div class="sw"><div class="chip" style="background:#141A1E"></div><div class="meta"><b>Inchiostro</b><code>#141A1E</code></div></div>
+  <div class="sw"><div class="chip" style="background:#4A555C"></div><div class="meta"><b>Grafite</b><code>#4A555C</code></div></div>
+  <div class="sw"><div class="chip" style="background:#E3E1DC"></div><div class="meta"><b>Nebbia</b><code>#E3E1DC</code> — bordi</div></div>
+  <div class="sw"><div class="chip" style="background:#F7F5F1"></div><div class="meta"><b>Carta</b><code>#F7F5F1</code> — fondo</div></div>
+</div>
+<p style="color:var(--muted);font-size:14px">I grigi tirano al caldo, non al blu:
+tengono insieme terracotta e blu senza farli litigare.</p>
+
+<h3>Scala quota — solo per i dati</h3>
+<p style="color:var(--muted);font-size:14px">La quota (0–285 m) è l'unica variabile che
+merita una scala continua. Non è un colore di marca: si usa sulla mappa e nulla più.</p>
+<div class="ramp">
+  <i style="background:#2C7BB6"></i><i style="background:#ABD9E9"></i><i style="background:#FFFFBF"></i>
+  <i style="background:#FDAE61"></i><i style="background:#D7191C"></i>
+</div>
+<div class="ramp-lab"><span>0 m · mare</span><span>quota dell'abitazione</span><span>285 m · alto del versante</span></div>
+
+<h3>Contrasto</h3>
+<table>
+  <tr><th>Uso</th><th>Regola</th></tr>
+  <tr><td>Testo su fondo</td><td>minimo <b>4.5:1</b>. Blu Servizio e Urgenza passano su Carta; la Terracotta piena <b>no</b> per testo piccolo — si usa <code>#A8462A</code>.</td></tr>
+  <tr><td>Stato</td><td>mai solo colore: sempre <b>colore + icona + parola</b>. Si lavora al sole, con schermi consumati.</td></tr>
+  <tr><td>Tocco</td><td>area minima <b>44×44 px</b>: l'app si usa in piedi, per strada, con una mano.</td></tr>
+</table>
+
+<h2>4 · Tipografia</h2>
+<div class="grid g2">
+  <div class="card">
+    <h3>Bricolage Grotesque — titoli e marca</h3>
+    <p style="font-family:var(--serif);font-size:30px;color:var(--fg);letter-spacing:-.02em;margin:8px 0">Chi visitare oggi</p>
+    <p>Grottesca umanista, un po' irregolare: dà calore senza perdere autorevolezza.
+    Solo titoli, wordmark e numeri grandi. Pesi 600 e 800.</p>
+  </div>
+  <div class="card">
+    <h3>Inter — interfaccia e testo</h3>
+    <p style="font-family:var(--sans);font-size:19px;color:var(--fg);margin:8px 0">Antônia Santos Rocha · 66+ · quota 214 m</p>
+    <p>Massima leggibilità a schermo piccolo e in movimento. Pesi 400/500/600.
+    <b>Cifre tabulari</b> obbligatorie dove ci sono numeri in colonna.</p>
+  </div>
+</div>
+<table>
+  <tr><th>Ruolo</th><th>Carattere</th><th>Dimensione</th></tr>
+  <tr><td>Titolo schermata</td><td>Bricolage 800</td><td>28–34 px</td></tr>
+  <tr><td>Nome paziente</td><td>Inter 600</td><td>17 px</td></tr>
+  <tr><td>Corpo e meta</td><td>Inter 400</td><td>15 px · meta 13 px</td></tr>
+  <tr><td>Numeri in evidenza</td><td>Bricolage 800, tabulari</td><td>22–40 px</td></tr>
+  <tr><td>Etichette</td><td>Inter 600, maiuscoletto, +.12em</td><td>12 px</td></tr>
+</table>
+<p style="color:var(--muted);font-size:14px">Entrambi da Google Fonts, gratuiti,
+caricabili con <code>next/font</code>: nessuna licenza da comprare, nessuna richiesta esterna a runtime.</p>
+
+<h2>5 · Il motivo grafico</h2>
+<p>Le <b>curve di livello</b> sono la firma di Visitare: vengono dai dati veri
+(<code>quota_m</code>), non da una decorazione. Si usano come sfondo leggero di
+intestazioni e stati vuoti, sempre <b>al 6–10% di opacità</b> e mai dietro a un testo lungo.</p>
+<div style="border:1px solid var(--bordo);border-radius:14px;height:130px;background:var(--blu);position:relative;overflow:hidden">
+  <svg viewBox="0 0 400 130" preserveAspectRatio="none" style="position:absolute;inset:0;width:100%;height:100%">
+    <g stroke="#F7F5F1" fill="none" stroke-width="1.5" opacity=".28">
+      <path d="M-10 96c60-40 180-52 420-14"/><path d="M-10 110c60-40 180-52 420-14"/>
+      <path d="M-10 124c60-40 180-52 420-14"/><path d="M-10 82c50-34 160-44 420-12"/>
+      <path d="M-10 68c46-30 150-40 420-10"/>
+    </g>
+  </svg>
+  <div style="position:relative;padding:22px 24px;color:#F7F5F1">
+    <div style="font-family:var(--serif);font-weight:800;font-size:24px;letter-spacing:-.02em">Equipe Valão</div>
+    <div style="opacity:.75;font-size:14px;margin-top:2px">2.000 pazienti · Clínica da Família Maria do Socorro</div>
+  </div>
+</div>
+
+<h2>6 · Voce</h2>
+<div class="grid g2">
+  <div class="card do"><h3>Sì</h3><ul>
+    <li>«Non visitato da 187 giorni»</li>
+    <li>«Dimesso dal pronto soccorso, mai ricontattato»</li>
+    <li>Frasi brevi, verbi concreti, italiano semplice</li>
+    <li>Il paziente ha un nome, sempre</li>
+  </ul></div>
+  <div class="card dont"><h3>No</h3><ul>
+    <li>«Paziente ad alto rischio: score 8.4»</li>
+    <li>«Ottimizza il tuo funnel di visite»</li>
+    <li>Gergo clinico o da prodotto</li>
+    <li>Toni allarmistici: informano male e stancano</li>
+  </ul></div>
+</div>
+
+<h2>7 · Da fare / da non fare</h2>
+<div class="grid g2">
+  <div class="card do"><h3>Da fare</h3><ul>
+    <li>Fondo <b>Carta</b>, contenuto in schede bianche con bordo Nebbia</li>
+    <li>Blu per ciò che si tocca, Terracotta per ciò che va notato</li>
+    <li>Angoli morbidi (10–16 px), ombre quasi assenti</li>
+    <li>La quota in metri accanto alla distanza: è il vero costo</li>
+  </ul></div>
+  <div class="card dont"><h3>Da non fare</h3><ul>
+    <li>Croci rosse, camici, stetoscopi: non è un ospedale</li>
+    <li>Gradienti, vetro, neon</li>
+    <li>Terracotta come colore di allarme: è calore, non pericolo</li>
+    <li>Colore da solo per distinguere uno stato</li>
+    <li>Foto di persone reali: i dati sono sintetici, le persone no</li>
+  </ul></div>
+</div>
+
+<h2>8 · Token di partenza</h2>
+<pre><code>--blu-servizio:#14507A;  --blu-scuro:#0E3A59;   --blu-chiaro:#E7F0F6;
+--terracotta:#C75B39;    --terra-scuro:#A8462A; --terra-chiara:#FBEDE7;
+--verde-versante:#2F7A5B;--verde-chiaro:#E7F2EC;
+--urgenza:#B3261E;       --attenzione:#B26A00;  --neutro:#8B979E;
+--inchiostro:#141A1E;    --grafite:#4A555C;     --nebbia:#E3E1DC;  --carta:#F7F5F1;
+--radius:14px;           --tocco-min:44px;
+--font-titoli:'Bricolage Grotesque';            --font-ui:'Inter';</code></pre>
+
+<div class="foot">
+  <b>Visitare</b> · Brand System v1 · guida per l'implementazione del front-end.<br>
+  Dati sintetici e anonimizzati (Claude Impact Lab Rio 2026): nomi, posizioni e visite
+  sono generati.
+</div>
+
+</div>
+
+<script>
+const BLU = '#14507A', CARTA = '#F7F5F1';
+
+const MARK = (c, bg) => `
+  <path d="M24 6c-8.2 0-14.8 6.5-14.8 14.6C9.2 31 24 43 24 43s14.8-12 14.8-22.4C38.8 12.5 32.2 6 24 6z"
+        fill="${c}"/>
+  <circle cx="24" cy="17.4" r="3.6" fill="${bg}"/>
+  <path d="M17.4 27.6c0-3.7 3-5.8 6.6-5.8s6.6 2.1 6.6 5.8" fill="${bg}"/>`;
+
+document.querySelectorAll('[data-mark]').forEach(el => {
+  const size = el.dataset.mark, neg = !!el.dataset.neg;
+  el.innerHTML = `<svg width="${size}" height="${size}" viewBox="0 0 48 48" fill="none"
+    role="img" aria-label="Visitare">${neg ? MARK(CARTA, BLU) : MARK(BLU, CARTA)}</svg>`;
+});
+</script>
+
+</body>
+</html>

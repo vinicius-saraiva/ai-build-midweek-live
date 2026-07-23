@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 80" width="300" height="80" fill="none" role="img" aria-label="Visitare">
+  <g transform="translate(8,8) scale(1.33)">
+    <path d="M24 6c-8.2 0-14.8 6.5-14.8 14.6C9.2 31 24 43 24 43s14.8-12 14.8-22.4C38.8 12.5 32.2 6 24 6z" fill="#14507A"/>
+    <circle cx="24" cy="17.4" r="3.6" fill="#F7F5F1"/>
+    <path d="M17.4 27.6c0-3.7 3-5.8 6.6-5.8s6.6 2.1 6.6 5.8" fill="#F7F5F1"/>
+  </g>
+  <text x="82" y="52" font-family="Bricolage Grotesque, Inter, system-ui, sans-serif"
+        font-size="44" font-weight="800" letter-spacing="-1.6" fill="#14507A">Visitare</text>
+</svg>

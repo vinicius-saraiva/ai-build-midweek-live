@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   Token — da brand-system-proposal/. Nessun componente definisce colori propri.
+   Si usa al sole, su Android lento: niente backdrop-blur, niente ombre costose.
+   ========================================================================== */
+
+@theme {
+  --color-carta:      #F7F5F1;   /* fondo */
+  --color-scheda:     #FFFFFF;
+  --color-inchiostro: #141A1E;   /* testo primario */
+  --color-grafite:    #4A555C;   /* testo secondario */
+  --color-pietra:     #8B979E;   /* testo terziario */
+  --color-nebbia:     #E3E1DC;   /* bordi */
+  --color-blu:        #14507A;   /* azione, identità */
+  --color-blu-tenue:  #E7F0F6;
+  --color-verde:      #2F7A5B;   /* quota bassa */
+  --color-verde-tenue:#E7F2EC;
+  --color-terracotta: #C75B39;   /* quota alta */
+  --color-terra-tenue:#FBEDE7;
+  --color-urgenza:    #B3261E;   /* PS non ricontattato */
+  --color-attenzione: #B26A00;   /* mai visitato */
+
+  --radius-scheda: 14px;
+  --spacing-tocco: 44px;         /* area di tocco minima, non negoziabile */
+
+  --font-ui: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  @theme {
+    --color-carta:      #10161A;
+    --color-scheda:     #182026;
+    --color-inchiostro: #F2F0EC;
+    --color-grafite:    #9AA6AD;
+    --color-pietra:     #8B979E;
+    --color-nebbia:     #28333A;
+    --color-blu:        #4E9BD1;
+    --color-blu-tenue:  #16303F;
+    --color-verde:      #5FB18C;
+    --color-verde-tenue:#142A22;
+    --color-terracotta: #E08461;
+    --color-terra-tenue:#33211B;
+    --color-urgenza:    #E3766E;
+    --color-attenzione: #D89B3A;
+  }
+}
+
+html, body, #root { height: 100%; margin: 0; }
+
+body {
+  background: var(--color-carta);
+  color: var(--color-inchiostro);
+  font-family: var(--font-ui);
+  -webkit-text-size-adjust: 100%;
+  overscroll-behavior-y: none;
+}
+
+* { -webkit-tap-highlight-color: transparent; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+
+/* Skeleton: unico effetto animato ammesso, perché sostituisce l'attesa muta. */
+@keyframes pulsa { 0%, 100% { opacity: 1 } 50% { opacity: .45 } }
+.skeleton {
+  background: var(--color-nebbia);
+  border-radius: 6px;
+  animation: pulsa 1.4s ease-in-out infinite;
+}
+
+/* Barra filtri: una riga sola, scorre in orizzontale, senza barra visibile. */
+.riga-filtri { overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+.riga-filtri::-webkit-scrollbar { display: none; }
