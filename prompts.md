@@ -1,7 +1,9 @@
 # Prompt della sessione — Visitare
 
 I prompt originali che ho usato, in ordine, raggruppati per fase del metodo **RePPIT**
-(Research · Propose · Plan · Implement · Test). Sono trascritti verbatim; ho solo
+(Research · Propose · Plan · Implement · Test) — un metodo ideato da
+[Mihail Eric](https://themodernsoftware.dev/), che approfondisco su
+[vinicius.pm/reppit](https://vinicius.pm/reppit). Sono trascritti verbatim; ho solo
 oscurato i riferimenti al mio progetto Supabase privato.
 
 ---
