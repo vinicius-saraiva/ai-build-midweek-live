@@ -143,14 +143,3 @@ dove sei? voglio pubblicare su vercel!
 La visione mappa non funziona. Quando clicco vado su una mappa tutta in nero. Usa
 Claude in Chrome extension per testare se vuoi.
 ```
-
----
-
-## 🗂️ Extra
-
-### 9 · Salva i prompt
-
-```
-Riesci a copiare tutti i prompt che ho fatto io su questa conversazione su un file
-chiamato prompts.md? devono essere i miei prompt originali
-```
